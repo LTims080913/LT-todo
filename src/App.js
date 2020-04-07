@@ -1,7 +1,44 @@
 import React from 'react';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
-import './components/Todo.css'
+/* import './components/Todo.css' */
+import './App.css'
+import Styled from 'styled-components'
+import Background from "./images/pexels-photo-3630026.jpeg"
+
+
+
+/****Styles****/
+
+/* first i created a App.css file to do a reset and imported it */
+
+/* next i created a div to hold and import your image */
+
+const ImageBackground = Styled.div `
+display: flex;
+justify-content:center;
+background-image: url(${Background});
+background-size:cover;
+height: 100vh;
+`
+/* then I created another div to hold and justify your text */
+const ContainerDiv = Styled.div`
+display:flex;
+flex-direction: column;
+text-align: center;
+width: 80%;
+`
+/* Wanted to give your header some space */
+
+const ExcellentHeader = Styled.h1 `
+padding: 8%;
+margin-bottom: 5%;
+color: white;
+font-size: 1.5em;
+`
+/* next I went into your form to style it a bit. */
+
+/************/
 
 const tasks = [
     {
@@ -65,19 +102,17 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className='App'>
-        <h2>Welcome to your Todo App!</h2>
-        <p className="hide">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue tempor mi, et efficitur risus porta a. Phasellus nisl leo, varius a pharetra at, maximus ut risus. Nullam lobortis ligula felis. Proin pretium nibh eu erat viverra, ac bibendum magna dapibus. Aliquam cursus nunc sed vulputate condimentum. Mauris at nunc tempus, pretium dolor sed, efficitur odio. Cras dignissim molestie massa, molestie sodales felis porttitor ut. Quisque aliquam scelerisque commodo. Sed nec lacus ligula. Vestibulum vitae dolor augue.
-
-        Curabitur porttitor, ante at sagittis ornare, tortor risus volutpat nunc, a iaculis lacus ipsum eu nulla. Fusce eleifend nibh non cursus cursus. Sed luctus auctor quam a varius. Vestibulum facilisis vitae nisl quis mattis. Nunc maximus, leo vel convallis vulputate, quam massa eleifend odio, sit amet luctus nibh magna quis elit. Aenean venenatis pellentesque felis, non vulputate lorem euismod id. Ut quis facilisis mauris. Nam ultricies turpis sollicitudin tortor iaculis, at sagittis enim cursus. Vestibulum placerat massa in risus volutpat, vel sollicitudin justo posuere.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue tempor mi, et efficitur risus porta a. Phasellus nisl leo, varius a pharetra at, maximus ut risus. Nullam lobortis ligula felis. Proin pretium nibh eu erat viverra, ac bibendum magna dapibus. Aliquam cursus nunc sed vulputate condimentum. Mauris at nunc tempus, pretium dolor sed, efficitur odio. Cras dignissim molestie massa, molestie sodales felis porttitor ut. Quisque aliquam scelerisque commodo. Sed nec lacus ligula. Vestibulum vitae dolor augue.
-        Curabitur porttitor, ante at sagittis ornare, tortor risus volutpat nunc, a iaculis lacus ipsum eu nulla. Fusce eleifend nibh non cursus cursus. Sed luctus auctor quam a varius. Vestibulum facilisis vitae nisl quis mattis. Nunc maximus, leo vel convallis vulputate, quam massa eleifend odio, sit amet luctus nibh magna quis elit. Aenean venenatis pellentesque felis, non vulputate lorem euismod id. Ut quis facilisis mauris. Nam ultricies turpis sollicitudin tortor iaculis, at sagittis enim cursus. Vestibulum placerat massa in risus volutpat, vel sollicitudin justo posuere.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue tempor mi, et efficitur risus porta a. Phasellus nisl leo, varius a pharetra at, maximus ut risus. Nullam lobortis ligula felis. 
-        </p>
+      <ImageBackground>
+        <ContainerDiv>
+        <ExcellentHeader>Welcome to your Todo App!</ExcellentHeader>
+        
         <TodoForm addTask={this.addTask}/><TodoList 
         finishedTask={this.finishedTask} 
         todo={this.state.todo} 
         tasks={this.state.tasks}
         toggleTask={this.toggleTask}/>
-      </div>
+        </ContainerDiv>
+      </ImageBackground>
       
     );
   }
